@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+	{% block title %}
+		{% if admin is defined %}
+			Admin Page
+		{% else %}
+			User Page
+		{% endif %}
+	{% endblock %}
+	
+	{% block content %}
+		{% if admin is defined %}
+			<h2>Wellcome {{name}}!</h2>
+		{% else %}
+			<h2>Hello {{name}}!</h2>
+		{% endif %}
+	{% endblock %}

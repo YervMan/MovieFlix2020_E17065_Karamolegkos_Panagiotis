@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Movies Found{% endblock %}
+{% block content %}
+  <h4>To see more about a movie, type the id of the movie below:</h4>
+  <form action="#" method="post">
+    <p>ID: <input type="text" name="ID"/></p>
+    <p><input type="submit" value="submit"/></p>
+  </form>
+  {% for movie in moviesFound %}
+    <p>
+      <b>ID: {{movie["_id"]}}</b><br>
+      Title: {{movie["title"]}}<br>
+      {% if movie["year"] is defined %}
+        Year: {{movie["year"]}}<br>
+      {% endif %}
+      {% if movie["descr"] is defined %}
+        Plot description: {{movie["descr"]}}<br>
+      {% endif %}
+      <u>Actors:</u><br>
+      <ul>
+      {% for actor in movie["actors"] %}
+        <li>{{actor}}</li>
+      {% endfor %}
+      </ul>
+    </p><br>
+  {% endfor %}
+{% endblock %}
+

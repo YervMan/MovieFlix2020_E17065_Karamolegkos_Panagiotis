@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+	{% block title %}Delete a User's Comment{% endblock %}
+	{% block content %}
+		{% for mov in movie %}
+			<h2>{{mov["title"]}}</h2>
+			<h4>Type below the email of the user's email of the comment that you want to delete.</h4>
+			<form action="#" method="post">
+				<p>Email: <input type="text" name="email"/></p>
+				<p><input type="submit" value="submit"/></p>
+			</form>
+			Comments: <br>
+			{% for com in mov["comments"] %}
+				{% if com["comment"] != "" %}
+					<p>
+					{{com["email"]}}: {{com["comment"]}}
+					</p>
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+	{% endblock %}
+

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+	{% block title %}New Movie Page{% endblock %}
+	
+	{% block content %}
+		<h4>Fill the names of the actor below.</h4>
+		<h5>To add the new actor press submit.</h5>
+		<h5>To stop adding actors press "Actors are ready".</h5>
+		<form action="#" method="post">
+			<label for="actor">Actor's name:</label><br>
+			<input type="text" id="actor" name="actor"><br><br>
+
+			<input type="submit" value="submit">
+		</form> 
+		<h5><a href="http://localhost:5000/MovieFlix/TestMovie">Actors are ready.</a></h5>
+	{% endblock %}

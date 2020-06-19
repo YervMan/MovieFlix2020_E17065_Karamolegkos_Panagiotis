@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+	{% block title %}Movie{% endblock %}
+	{% block content %}
+		<p>
+		What from the following do you want to do?<br>
+		<ul>
+			<li>1) Make a Comment for the movie below.</li>
+			<li>2) Make a Rating for the movie below.</li>
+			<li>3) Delete my Comment from the movie below.</li>
+			<li>4) Delete my Rating from the movie below.</li>
+			{% if admin is defined %}
+				<li>5) Delete Comments from the movie below.</li>
+				<li>6) Update information about the movie below.</li>
+				<li>7) Delete this movie from MovieFlix.</li>
+			{% endif %}
+		</ul>
+		Choose by typing the number from above.
+		<form action="#" method="post">
+			<p>Answer: <input type="text" name="ans"/></p>
+			<p><input type="submit" value="submit"/></p>
+		</form>
+		</p>
+		{% for mov in movie %}
+			<h2>{{mov["title"]}}</h2>
+			<u>
+			{% if mov["rating"] is defined %}
+				{% if mov["rating"] == -1 %}
+					<p>Rating: no Ratings</p>
+				{% else %}
+					<p>Rating: {{mov["rating"]}}</p>
+				{% endif %}
+			{% else %}
+				<p>Rating: no Ratings</p>
+			{% endif %}
+			</u>
+			<p><b>
+			{% if rating is defined %}
+				{% if rating != -1 %}
+					Your rating: {{rating}}
+				{% else %}
+					Your rating: You have not give any rating.
+				{% endif %}
+			{% else %}
+				Your rating: You have not give any rating.
+			{% endif %}
+			</p>
+			<p>
+			{% if comment is defined %}
+				{% if comment != "" %}
+					Your comment: {{comment}}
+				{% else %}
+					Your comment: You have not give any comment.
+				{% endif %}
+			{% else %}
+				Your comment: You have not give any comment.
+			{% endif %}
+			</p></b>
+			Comments: <br>
+			{% for com in mov["comments"] %}
+				{% if com["comment"] != "" %}
+					<p>
+					{{com["email"]}}: {{com["comment"]}}
+					</p>
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+	{% endblock %}
+

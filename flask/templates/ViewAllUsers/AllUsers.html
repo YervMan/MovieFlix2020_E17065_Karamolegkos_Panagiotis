@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+	{% block title %}All Users{% endblock %}
+	{% block content %}
+		<p>
+			<h4>Type the email of an account below to promote it to admin, or to delete it from MovieFlix.</h4><br/>
+			<u style="color:red;">You are not allowed to do nothing of the above to admin accounts.</u>
+			<form action="#" method="post">
+				<p>Email: <input type="text" name="email"/></p>
+				<p><input type="submit" value="submit"/></p>
+			</form>
+		</p>
+		<p>
+			<b>Admins:</b><br>
+			<ul style="color:green;">
+				{% for user in movieFlixUsers %}
+					{% if user["isAdmin"] == true %}
+						<li>{{user["email"]}}</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</p>
+		<p>
+			<b>Users:</b><br>
+			<ul>
+				{% for user in movieFlixUsers %}
+					{% if user["isAdmin"] == false %}
+						<li>{{user["email"]}}</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</p>
+	{% endblock %}
+

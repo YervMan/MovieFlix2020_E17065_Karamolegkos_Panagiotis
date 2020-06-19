@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+	{% block title %}All your comments{% endblock %}
+	{% block content %}
+		<p>
+		Bellow you will find the movies you have commented with your comments.
+		</p>
+		<h4>Comments:</h4>
+		{% for comment in allComments %}
+			<p>
+				<b>Movie title: </b>{{comment["title"]}} <br>
+				<u>Your comment: <u/> {{comment["comment"]}}
+			</p>
+		{% endfor %}
+	{% endblock %}
+

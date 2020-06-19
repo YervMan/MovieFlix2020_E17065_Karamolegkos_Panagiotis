@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+	{% block title %}Make an Account Admin or Delete it{% endblock %}
+	{% block content %}
+		<p>
+			<b>What do you want to do with the account:</b><br>
+			{{user}}
+		</p>
+		<a href="http://localhost:5000/MovieFlix/UserToAdmin">Make it an Admin.</a><br>
+		<a href="http://localhost:5000/MovieFlix/DeleteUsersAccount">Delete it from MovieFlix.</a>
+	{% endblock %}
+

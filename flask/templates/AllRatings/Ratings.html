@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+	{% block title %}All your ratings{% endblock %}
+	{% block content %}
+		<p>
+		Bellow you will find the movies you have rated with your ratings.
+		</p>
+		<h4>Ratings:</h4>
+		{% for comment in allRatings %}
+			<p>
+				<b>Movie title: </b>{{comment["title"]}} <br>
+				<u>Your rating: <u/> {{comment["rating"]}}
+			</p>
+		{% endfor %}
+	{% endblock %}
+

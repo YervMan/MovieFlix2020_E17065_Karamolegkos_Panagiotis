@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+	{% block title %}Delete a Rating{% endblock %}
+	{% block content %}
+		<h2>{{title}}</h2>
+		<h4>Are you sure you want to delete the rating below?</h4>
+		rating : {{rating}}
+		<br>
+		Type YES or NO!
+		<form action="#" method="post">
+			<p>Answer: <input type="text" name="ans"/></p>
+			<p><input type="submit" value="submit"/></p>
+		</form>
+	{% endblock %}
+

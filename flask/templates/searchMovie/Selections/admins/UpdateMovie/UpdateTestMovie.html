@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Update Movie Page{% endblock %}
+{% block content %}
+  <h4>The information of the movie are listed below.</h4>
+  <h4>If all the information is okey, then type below YES.</h4>
+  <h4>If the information has mistakes, type NO to re-type it.</h4>
+  <br>
+  <h3>Title: {{title}}</h3>
+  <h4>
+    {% if year is defined %}
+      <p>Year: {{year}}</p>
+    {% endif %}
+    {% if descr is defined %}
+      <p>Description: {{descr}}</p>
+    {% endif %}
+    Actors:
+    <ul>
+    {% for actor in actors %}
+      <li>{{actor}}</li>
+    {% endfor %}
+    </ul>
+  </h4>
+  <form action="#" method="post">
+    <label for="ans">Is all the information okey?</label><br>
+    <input type="text" id="ans" name="ans"><br><br>
+    <input type="submit" value="submit">
+  </form>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for msg in messages %}
+          <p style="color:green;">{{msg}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <h5><a href="http://localhost:5000/MovieFlix/logout">Log out.</a></h5>
+    <h5><a href="http://localhost:5000/MovieFlix/Search">Search a movie.</a></h5>
+    <h5><a href="http://localhost:5000/MovieFlix/Comments">Display all comments.</a></h5>
+    <h5><a href="http://localhost:5000/MovieFlix/Ratings">Display all ratings.</a></h5>
+    <h5><a href="http://localhost:5000/MovieFlix/DeleteAccount">Delete my account.</a></h5>
+    {% if admin is defined %}
+      <h5><a href="http://localhost:5000/MovieFlix/NewMovie">Insert a New Movie.</a></h5>
+      <h5><a href="http://localhost:5000/MovieFlix/ViewUsers">View all users.</a></h5>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
